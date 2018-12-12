@@ -9,7 +9,7 @@ using SignalRDirect;
 namespace SignalRDirect.Migrations
 {
     [DbContext(typeof(CallCenterContext))]
-    [Migration("20181211145318_init")]
+    [Migration("20181212194150_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,25 +20,6 @@ namespace SignalRDirect.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("SignalRDirect.Call", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("From");
-
-                    b.Property<string>("To");
-
-                    b.Property<int>("UserId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Call");
-                });
-
             modelBuilder.Entity("SignalRDirect.User", b =>
                 {
                     b.Property<int>("Id")
@@ -47,23 +28,13 @@ namespace SignalRDirect.Migrations
 
                     b.Property<string>("Email");
 
-                    b.Property<string>("FirstName");
-
-                    b.Property<string>("LastName");
+                    b.Property<string>("Name");
 
                     b.Property<int>("Phone");
 
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("SignalRDirect.Call", b =>
-                {
-                    b.HasOne("SignalRDirect.User", "User")
-                        .WithMany("Calls")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

@@ -1,100 +1,30 @@
-<div class="jumbotron">
-    <h1>
-        Call Center Page
-    </h1>
-</div>
+<h2>Call Center Login</h2>
 
-<div class="row">
-    <div id="app">
-        <form v-on:submit.prevent="addMessage">
-            <input type="text" v-model="newMessage">
-            <input class="btn btn-default" type="submit" value="Send">
-        </form>
-        <ul>
-            <li v-for="message in messages">{{ message }}</li>
-        </ul>
-    </div>
-</div>
-<div class="row">
-    <form action="/CallCenter/Dial">
-    <div class="panel panel-primary col-lg-6 col-lg-offset-3">
-        <div class="panel-heading">
-            <h1>Phone Pad</h1>
-        </div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="btn col-lg-4">
-                    <h2>1</h2>
-                </div>
-                <div class="btn col-lg-4">
-                    <h2>2</h2>
-                </div>
-                <div class="btn col-lg-4">
-                    <h2>3</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="btn col-lg-4">
-                    <h2>4</h2>
-                </div>
-                <div class="btn col-lg-4">
-                    <h2>5</h2>
-                </div>
-                <div class="btn col-lg-4">
-                    <h2>6</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="btn col-lg-4">
-                    <h2>7</h2>
-                </div>
-                <div class="btn col-lg-4">
-                    <h2>8</h2>
-                </div>
-                <div class="btn col-lg-4">
-                    <h2>9</h2>
-                </div>      
-            </div>
-            <div class="row">
-                <div class="btn col-lg-4 col-lg-offset-4">
-                    <h1>0</h1>
-                </div>
-            </div>
-        </div>
-        <div class="panel-footer">
-            <div style="margin: auto; width: 50%">
-                <button class="btn btn-lg btn-success" type="submit">Dial</button>
-            </div>
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="row">
+        <div class="container">
+            <p>Hello, @User.Identity.Name</p>
+
+             <form method="post" asp-action="Logout">
+                 <button class="btn btn-danger" type="submit">Logout</button>
+             </form>
         </div>
     </div>
-    </form>
-</div>
+}
+else
+{
+    <div class="row">
+        <div class="container">
+            <p>Enter your name to login</p>
 
-<script src="~/lib/signalr/dist/browser/signalr.js"></script>
-<script src="~/lib/vue/dist/vue.js"></script>
-
-<script>
-    (async function (){
-        
-        const connection = new signalR.HubConnectionBuilder().withUrl("/calls").build()
-        const app = new Vue({
-            el: "#app",
-            data:{
-                messages: [],
-                newMessage: null
-            },
-            methods:{
-                async addMessage(){
-                    await connection.invoke("Send", this.newMessage)
-                    this.newMessage = null
-                }
-            }
-        })
-
-        connection.on("Send", message => {
-            app.messages.push(message)
-        })
-
-        await connection.start()
-    })()
-</script>
+            <form method="post" asp-action="Login">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <button class="btn btn-success" type="submit">Log in</button>
+            </form>
+        </div>
+    </div>
+}

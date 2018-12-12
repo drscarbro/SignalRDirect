@@ -1,8 +1,9 @@
+using System.Threading.Tasks;
+
 namespace SignalRDirect.Services
 {
     public interface ICallCenterService
     {
-        void Call();
-        string GetCallStatus(); 
+        Task<bool> SaveUser(string name);
     }
 }

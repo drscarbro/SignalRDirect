@@ -31,3 +31,6 @@ C:\git\dotnet\signalr\SignalRDirect\obj\Debug\netcoreapp2.1\SignalRDirect.Views.
 C:\git\dotnet\signalr\SignalRDirect\obj\Debug\netcoreapp2.1\SignalRDirect.dll
 C:\git\dotnet\signalr\SignalRDirect\obj\Debug\netcoreapp2.1\SignalRDirect.pdb
 C:\git\dotnet\signalr\SignalRDirect\obj\Debug\netcoreapp2.1\SignalRDirect.csproj.CopyComplete
+C:\git\dotnet\signalr\SignalRDirect\obj\Debug\netcoreapp2.1\Razor\Views\CallCenter\Console.g.cshtml.cs
+C:\git\dotnet\signalr\SignalRDirect\obj\Debug\netcoreapp2.1\Razor\Views\Home\ErrorForbidden.g.cshtml.cs
+C:\git\dotnet\signalr\SignalRDirect\obj\Debug\netcoreapp2.1\Razor\Views\Home\ErrorNotLoggedIn.g.cshtml.cs
