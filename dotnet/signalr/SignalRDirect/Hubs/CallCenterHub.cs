@@ -5,6 +5,7 @@ using SignalRDirect.Services;
 using Twilio.Types;
 using Twilio.Rest.Api.V2010.Account;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SignalRDirect
 {
@@ -30,7 +31,21 @@ namespace SignalRDirect
         {
             users[username] = this.Context.ConnectionId;
 
-            return Clients.All.SendAsync("AddUserList", users.Keys);
+            var userKey = users.Where(u => u.Key.Equals(username)).Select(u => u.Key);
+
+            return Clients.AllExcept(this.Context.ConnectionId).SendAsync("AddUserList", userKey);
+        }
+
+        public Task TakeBlock(string username)
+        {
+            try{
+                string s = "You been took!";
+                return Clients.Client(users[username]).SendAsync("TakeBlock", s);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

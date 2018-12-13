@@ -76,7 +76,7 @@ using SignalRDirect.Models;
             WriteLiteral("</p>\r\n\r\n             ");
             EndContext();
             BeginContext(188, 141, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a5548e281d6b4b7f943e9f6642d4ce4c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7db3a70fcbc74a2e81cf06080be8d03f", async() => {
                 BeginContext(228, 94, true);
                 WriteLiteral("\r\n                 <button class=\"btn btn-danger\" type=\"submit\">Logout</button>\r\n             ");
                 EndContext();
@@ -112,7 +112,7 @@ else
             WriteLiteral("    <div class=\"row\">\r\n        <div class=\"container\">\r\n            <p>Enter your name to login</p>\r\n\r\n            ");
             EndContext();
             BeginContext(486, 320, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8ffa569077d0441291d8c7036b709ab0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "df3a2be2a98e446db96676b4d34477d8", async() => {
                 BeginContext(525, 274, true);
                 WriteLiteral(@"
                 <div class=""form-group"">

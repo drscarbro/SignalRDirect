@@ -56,7 +56,7 @@ namespace SignalRDirect
 
             await _callCenterService.SaveUser(name);
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(WebConsole));
         }
 
         [HttpPost]
@@ -74,7 +74,7 @@ namespace SignalRDirect
         }
 
 
-        public IActionResult Console()
+        public IActionResult WebConsole()
         {
             return View();
         }
